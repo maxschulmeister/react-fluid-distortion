@@ -25,3 +25,19 @@ export type Props = SharedProps & {
 export type EffectProps = SharedProps & {
     tFluid?: Texture;
 };
+
+export type BulgeProps = {
+    radius?: number;
+    strength?: number;
+    lerpFactor?: number;
+    tintColor?: string;
+    tintIntensity?: number;
+    blendFunction?: BlendFunction;
+    invert?: boolean;
+};
+
+export type BulgeEffectProps = BulgeProps & {
+    tTarget?: Texture;
+    invert?: boolean;
+    aspectRatio?: number;
+};
