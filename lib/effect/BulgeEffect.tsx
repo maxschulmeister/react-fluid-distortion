@@ -13,6 +13,7 @@ type Uniforms = {
     uTintIntensity: number;
     uAspectRatio: number;
     uInvert: number;
+    uRadial: number;
 };
 
 export class BulgeEffect extends Effect {
@@ -25,12 +26,13 @@ export class BulgeEffect extends Effect {
         const uniforms: Record<keyof Uniforms, Uniform> = {
             tTarget: new Uniform(props.tTarget || null),
             uMouse: new Uniform(mousePosition),
-            uRadius: new Uniform(props.radius || 0.2),
+            uRadius: new Uniform(props.radius || 0.5),
             uStrength: new Uniform(props.strength || 0.7),
-            uTintColor: new Uniform(hexToRgb(props.tintColor || '#ffe4c4')),
-            uTintIntensity: new Uniform(props.tintIntensity || 0.1),
+            uTintColor: new Uniform(hexToRgb(props.tint || '#fff')),
+            uTintIntensity: new Uniform(props.intensity || 0),
             uAspectRatio: new Uniform(props.aspectRatio || 1.0),
-            uInvert: new Uniform(props.invert ? 1.0 : 0.0),
+            uInvert: new Uniform(props.invert !== undefined ? (props.invert ? 1.0 : 0.0) : 1.0),
+            uRadial: new Uniform(props.radial !== undefined ? (props.radial ? 1.0 : 0.0) : 1.0),
         };
 
         super('BulgeEffect', bulgeFragmentShader, {
@@ -55,21 +57,32 @@ export class BulgeEffect extends Effect {
     }
 
     update() {
-        this.updateUniform('uRadius', this.state.radius || 0.2);
+        this.updateUniform('uRadius', this.state.radius || 0.5);
         this.updateUniform('uStrength', this.state.strength || 0.7);
 
-        if (this.state.tintColor) {
-            this.updateUniform('uTintColor', hexToRgb(this.state.tintColor));
+        if (this.state.tint) {
+            this.updateUniform('uTintColor', hexToRgb(this.state.tint));
+        } else {
+            this.updateUniform('uTintColor', hexToRgb('#fff'));
         }
 
-        if (this.state.tintIntensity !== undefined) {
-            this.updateUniform('uTintIntensity', this.state.tintIntensity);
+        if (this.state.intensity !== undefined) {
+            this.updateUniform('uTintIntensity', this.state.intensity);
+        } else {
+            this.updateUniform('uTintIntensity', 0);
         }
 
         if (this.state.aspectRatio !== undefined) {
             this.updateUniform('uAspectRatio', this.state.aspectRatio);
         }
 
-        this.updateUniform('uInvert', this.state.invert ? 1.0 : 0.0);
+        this.updateUniform(
+            'uInvert',
+            this.state.invert !== undefined ? (this.state.invert ? 1.0 : 0.0) : 1.0,
+        );
+        this.updateUniform(
+            'uRadial',
+            this.state.radial !== undefined ? (this.state.radial ? 1.0 : 0.0) : 1.0,
+        );
     }
 }

@@ -5,6 +5,7 @@ import { Camera, Color, Mesh, Scene, Texture, Vector2, Vector3 } from 'three';
 import { ShaderPass } from 'three/examples/jsm/Addons.js';
 import { OPTS } from './constant';
 import { Effect as FluidEffect } from './effect/Fluid';
+import { useConfig } from './hooks/useConfig';
 import { useFBOs } from './hooks/useFBOs';
 import { useMaterials } from './hooks/useMaterials';
 import { usePointer } from './hooks/usePointer';
@@ -43,7 +44,9 @@ export const Fluid = ({
     densityDissipation = OPTS.densityDissipation,
     velocityDissipation = OPTS.velocityDissipation,
     blendFunction = BlendFunction.NORMAL,
+    controls = false,
 }: Props) => {
+    const config: Partial<Props> = controls ? useConfig() : {};
     const size = useThree((three) => three.size);
     const gl = useThree((three) => three.gl);
     const camera = useThree((three) => three.camera);
@@ -174,6 +177,7 @@ export const Fluid = ({
 
     return (
         <>
+            {controls && <></>}
             {createPortal(
                 <mesh
                     ref={meshRef}
@@ -186,13 +190,27 @@ export const Fluid = ({
 
             <FluidEffect
                 blendFunction={blendFunction}
-                intensity={intensity}
-                rainbow={rainbow}
-                distortion={distortion}
-                backgroundColor={backgroundColor}
-                blend={blend}
-                fluidColor={fluidColor}
-                showBackground={showBackground}
+                intensity={
+                    controls && config.intensity !== undefined ? config.intensity : intensity
+                }
+                rainbow={controls && config.rainbow !== undefined ? config.rainbow : rainbow}
+                distortion={
+                    controls && config.distortion !== undefined ? config.distortion : distortion
+                }
+                backgroundColor={
+                    controls && config.backgroundColor !== undefined
+                        ? config.backgroundColor
+                        : backgroundColor
+                }
+                blend={controls && config.blend !== undefined ? config.blend : blend}
+                fluidColor={
+                    controls && config.fluidColor !== undefined ? config.fluidColor : fluidColor
+                }
+                showBackground={
+                    controls && config.showBackground !== undefined
+                        ? config.showBackground
+                        : showBackground
+                }
                 ref={postRef}
                 tFluid={FBOs.density.read.texture}
             />

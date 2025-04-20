@@ -20,6 +20,7 @@ export type Props = SharedProps & {
     radius?: number;
     curl?: number;
     swirl?: number;
+    controls?: boolean;
 };
 
 export type EffectProps = SharedProps & {
@@ -27,17 +28,20 @@ export type EffectProps = SharedProps & {
 };
 
 export type BulgeProps = {
-    radius?: number;
-    strength?: number;
-    lerpFactor?: number;
-    tintColor?: string;
-    tintIntensity?: number;
+    radius?: number; // default: 0.5
+    strength?: number; // default: 1.5
+    lerp?: number; // default: 0.075
+    tint?: string; // default: '#fff'
+    intensity?: number; // default: 0
     blendFunction?: BlendFunction;
-    invert?: boolean;
+    invert?: boolean; // default: true
+    radial?: boolean; // default: true
+    controls?: boolean;
 };
 
 export type BulgeEffectProps = BulgeProps & {
     tTarget?: Texture;
     invert?: boolean;
     aspectRatio?: number;
+    radial?: boolean;
 };

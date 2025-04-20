@@ -6,12 +6,12 @@ export declare const useConfig: () => {
     fluidColor: string;
     backgroundColor: string;
     showBackground: boolean;
-    pressure: number;
-    curl: number;
     force: number;
-    radius: number;
+    curl: number;
     swirl: number;
+    pressure: number;
     densityDissipation: number;
     velocityDissipation: number;
+    radius: number;
 };
 //# sourceMappingURL=useConfig.d.ts.map

@@ -25,20 +25,21 @@ const Example3 = () => {
             <Image />
             <EffectComposer>
                 <Fluid
-                    radius={0.03}
+                    blend={0.5}
+                    force={2}
+                    radius={0.2}
                     curl={10}
                     swirl={5}
-                    distortion={1}
-                    force={2}
-                    pressure={0.94}
+                    intensity={0.7}
+                    distortion={0.5}
+                    fluidColor='#cfc0a8'
+                    backgroundColor='#1a1a1a'
+                    showBackground={true}
+                    rainbow={false}
+                    pressure={0.5}
                     densityDissipation={0.98}
                     velocityDissipation={0.99}
-                    intensity={0.3}
-                    rainbow={false}
-                    blend={0}
-                    showBackground={true}
-                    backgroundColor='#a7958b'
-                    fluidColor='#cfc0a8'
+                    controls={false}
                 />
             </EffectComposer>
         </ThreeTunnel.In>

@@ -4,7 +4,7 @@ import { EffectComposer } from '@react-three/postprocessing';
 import { useControls } from 'leva';
 import { useRef } from 'react';
 import { Mesh } from 'three';
-import { Bulge } from '../../lib/Bulge';
+import { Bulge } from '../../lib';
 import Text from './Text';
 import { ThreeTunnel } from './tunel';
 
@@ -52,45 +52,59 @@ export const Torus = () => {
     );
 };
 
+const bulgeDefaults = {
+    radius: 0.5,
+    strength: 1.5,
+    lerp: 0.075,
+    tint: '#fff',
+    intensity: 0,
+    invert: true,
+    radial: true,
+};
+
 const Example4 = () => {
-    const { radius, strength, lerpFactor, tintColor, tintIntensity, invert } = useControls(
+    const { radius, strength, lerp, tint, intensity, invert, radial } = useControls(
         'Bulge Effect',
         {
             radius: {
-                value: 0.1,
+                value: bulgeDefaults.radius,
                 min: 0.1,
                 max: 1.0,
                 step: 0.01,
                 label: 'Radius',
             },
             strength: {
-                value: 1,
+                value: bulgeDefaults.strength,
                 min: 0.1,
                 max: 3.0,
                 step: 0.1,
                 label: 'Strength',
             },
-            lerpFactor: {
-                value: 0.05,
+            lerp: {
+                value: bulgeDefaults.lerp,
                 min: 0.01,
                 max: 1.0,
                 step: 0.01,
                 label: 'Smoothness',
             },
-            tintColor: {
-                value: '#fff',
-                label: 'Tint Color',
+            tint: {
+                value: bulgeDefaults.tint,
+                label: 'Tint',
             },
-            tintIntensity: {
-                value: 0.1,
+            intensity: {
+                value: bulgeDefaults.intensity,
                 min: 0.0,
                 max: 1.0,
                 step: 0.01,
-                label: 'Tint Intensity',
+                label: 'Intensity',
             },
             invert: {
-                value: false,
+                value: bulgeDefaults.invert,
                 label: 'Invert',
+            },
+            radial: {
+                value: bulgeDefaults.radial,
+                label: 'Radial Mode',
             },
         },
     );
@@ -104,10 +118,12 @@ const Example4 = () => {
                 <Bulge
                     radius={radius}
                     strength={strength}
-                    lerpFactor={lerpFactor}
-                    tintColor={tintColor}
-                    tintIntensity={tintIntensity}
+                    lerp={lerp}
+                    tint={tint}
+                    intensity={intensity}
                     invert={invert}
+                    radial={radial}
+                    controls={true}
                 />
             </EffectComposer>
         </ThreeTunnel.In>

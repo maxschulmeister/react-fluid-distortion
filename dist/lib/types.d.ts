@@ -18,8 +18,26 @@ export type Props = SharedProps & {
     radius?: number;
     curl?: number;
     swirl?: number;
+    controls?: boolean;
 };
 export type EffectProps = SharedProps & {
     tFluid?: Texture;
+};
+export type BulgeProps = {
+    radius?: number;
+    strength?: number;
+    lerp?: number;
+    tint?: string;
+    intensity?: number;
+    blendFunction?: BlendFunction;
+    invert?: boolean;
+    radial?: boolean;
+    controls?: boolean;
+};
+export type BulgeEffectProps = BulgeProps & {
+    tTarget?: Texture;
+    invert?: boolean;
+    aspectRatio?: number;
+    radial?: boolean;
 };
 //# sourceMappingURL=types.d.ts.map

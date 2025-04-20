@@ -1,14 +1,14 @@
-var he = Object.defineProperty;
-var Re = (o, n, r) => n in o ? he(o, n, { enumerable: !0, configurable: !0, writable: !0, value: r }) : o[n] = r;
-var me = (o, n, r) => Re(o, typeof n != "symbol" ? n + "" : n, r);
-import be, { forwardRef as we, useMemo as q, useEffect as ne, useRef as O, useCallback as te } from "react";
-import { useThree as $, useFrame as Te, createPortal as Ce } from "@react-three/fiber";
-import { Effect as Se, BlendFunction as Ee } from "postprocessing";
-import * as g from "three";
-import { Color as _e, Vector3 as de, Uniform as F, ShaderMaterial as k, Vector2 as T, Texture as h, Scene as De, Camera as Fe } from "three";
-import { useFBO as oe } from "@react-three/drei";
-import { useControls as ke, button as Pe } from "leva";
-var ee = { exports: {} }, I = {};
+var Te = Object.defineProperty;
+var Se = (o, n, t) => n in o ? Te(o, n, { enumerable: !0, configurable: !0, writable: !0, value: t }) : o[n] = t;
+var oe = (o, n, t) => Se(o, typeof n != "symbol" ? n + "" : n, t);
+import De, { forwardRef as ye, useMemo as Y, useEffect as H, useRef as U, useCallback as ue } from "react";
+import { useThree as X, useFrame as xe, createPortal as Ee } from "@react-three/fiber";
+import { Effect as Re, BlendFunction as be } from "postprocessing";
+import * as R from "three";
+import { Color as _e, Vector3 as me, Uniform as h, ShaderMaterial as N, Vector2 as D, Texture as P, Scene as Pe, Camera as Fe } from "three";
+import { useControls as we, button as ke } from "leva";
+import { useFBO as se } from "@react-three/drei";
+var ae = { exports: {} }, ee = {};
 /**
  * @license React
  * react-jsx-runtime.production.js
@@ -19,28 +19,28 @@ var ee = { exports: {} }, I = {};
  * LICENSE file in the root directory of this source tree.
  */
 var pe;
-function Oe() {
-  if (pe) return I;
+function Ue() {
+  if (pe) return ee;
   pe = 1;
   var o = Symbol.for("react.transitional.element"), n = Symbol.for("react.fragment");
-  function r(i, u, l) {
-    var c = null;
-    if (l !== void 0 && (c = "" + l), u.key !== void 0 && (c = "" + u.key), "key" in u) {
-      l = {};
-      for (var R in u)
-        R !== "key" && (l[R] = u[R]);
-    } else l = u;
-    return u = l.ref, {
+  function t(r, a, s) {
+    var l = null;
+    if (s !== void 0 && (l = "" + s), a.key !== void 0 && (l = "" + a.key), "key" in a) {
+      s = {};
+      for (var w in a)
+        w !== "key" && (s[w] = a[w]);
+    } else s = a;
+    return a = s.ref, {
       $$typeof: o,
-      type: i,
-      key: c,
-      ref: u !== void 0 ? u : null,
-      props: l
+      type: r,
+      key: l,
+      ref: a !== void 0 ? a : null,
+      props: s
     };
   }
-  return I.Fragment = n, I.jsx = r, I.jsxs = r, I;
+  return ee.Fragment = n, ee.jsx = t, ee.jsxs = t, ee;
 }
-var W = {};
+var te = {};
 /**
  * @license React
  * react-jsx-runtime.development.js
@@ -56,41 +56,41 @@ function Be() {
     function o(e) {
       if (e == null) return null;
       if (typeof e == "function")
-        return e.$$typeof === ue ? null : e.displayName || e.name || null;
+        return e.$$typeof === m ? null : e.displayName || e.name || null;
       if (typeof e == "string") return e;
       switch (e) {
-        case V:
+        case d:
           return "Fragment";
-        case ie:
+        case q:
           return "Profiler";
-        case S:
+        case c:
           return "StrictMode";
-        case J:
-          return "Suspense";
         case Z:
+          return "Suspense";
+        case A:
           return "SuspenseList";
-        case L:
+        case ne:
           return "Activity";
       }
       if (typeof e == "object")
         switch (typeof e.tag == "number" && console.error(
           "Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."
         ), e.$$typeof) {
-          case ae:
+          case $:
             return "Portal";
-          case M:
+          case J:
             return (e.displayName || "Context") + ".Provider";
-          case A:
+          case F:
             return (e._context.displayName || "Context") + ".Consumer";
-          case E:
-            var a = e.render;
-            return e = e.displayName, e || (e = a.displayName || a.name || "", e = e !== "" ? "ForwardRef(" + e + ")" : "ForwardRef"), e;
+          case O:
+            var u = e.render;
+            return e = e.displayName, e || (e = u.displayName || u.name || "", e = e !== "" ? "ForwardRef(" + e + ")" : "ForwardRef"), e;
+          case re:
+            return u = e.displayName || null, u !== null ? u : o(e.type) || "Memo";
           case Q:
-            return a = e.displayName || null, a !== null ? a : o(e.type) || "Memo";
-          case f:
-            a = e._payload, e = e._init;
+            u = e._payload, e = e._init;
             try {
-              return o(e(a));
+              return o(e(u));
             } catch {
             }
         }
@@ -99,76 +99,76 @@ function Be() {
     function n(e) {
       return "" + e;
     }
-    function r(e) {
+    function t(e) {
       try {
         n(e);
-        var a = !1;
+        var u = !1;
       } catch {
-        a = !0;
+        u = !0;
       }
-      if (a) {
-        a = console;
-        var v = a.error, d = typeof Symbol == "function" && Symbol.toStringTag && e[Symbol.toStringTag] || e.constructor.name || "Object";
-        return v.call(
-          a,
+      if (u) {
+        u = console;
+        var f = u.error, g = typeof Symbol == "function" && Symbol.toStringTag && e[Symbol.toStringTag] || e.constructor.name || "Object";
+        return f.call(
+          u,
           "The provided key is an unsupported type %s. This value must be coerced to a string before using it here.",
-          d
+          g
         ), n(e);
       }
     }
-    function i(e) {
-      if (e === V) return "<>";
-      if (typeof e == "object" && e !== null && e.$$typeof === f)
+    function r(e) {
+      if (e === d) return "<>";
+      if (typeof e == "object" && e !== null && e.$$typeof === Q)
         return "<...>";
       try {
-        var a = o(e);
-        return a ? "<" + a + ">" : "<...>";
+        var u = o(e);
+        return u ? "<" + u + ">" : "<...>";
       } catch {
         return "<...>";
       }
     }
-    function u() {
-      var e = U.A;
+    function a() {
+      var e = L.A;
       return e === null ? null : e.getOwner();
     }
-    function l() {
+    function s() {
       return Error("react-stack-top-frame");
     }
-    function c(e) {
-      if (b.call(e, "key")) {
-        var a = Object.getOwnPropertyDescriptor(e, "key").get;
-        if (a && a.isReactWarning) return !1;
+    function l(e) {
+      if (ie.call(e, "key")) {
+        var u = Object.getOwnPropertyDescriptor(e, "key").get;
+        if (u && u.isReactWarning) return !1;
       }
       return e.key !== void 0;
     }
-    function R(e, a) {
-      function v() {
-        p || (p = !0, console.error(
+    function w(e, u) {
+      function f() {
+        S || (S = !0, console.error(
           "%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)",
-          a
+          u
         ));
       }
-      v.isReactWarning = !0, Object.defineProperty(e, "key", {
-        get: v,
+      f.isReactWarning = !0, Object.defineProperty(e, "key", {
+        get: f,
         configurable: !0
       });
     }
-    function B() {
+    function p() {
       var e = o(this.type);
-      return y[e] || (y[e] = !0, console.error(
+      return v[e] || (v[e] = !0, console.error(
         "Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release."
       )), e = this.props.ref, e !== void 0 ? e : null;
     }
-    function Y(e, a, v, d, D, C, se, le) {
-      return v = C.ref, e = {
-        $$typeof: H,
+    function T(e, u, f, g, M, j, le, ce) {
+      return f = j.ref, e = {
+        $$typeof: W,
         type: e,
-        key: a,
-        props: C,
-        _owner: D
-      }, (v !== void 0 ? v : null) !== null ? Object.defineProperty(e, "ref", {
+        key: u,
+        props: j,
+        _owner: M
+      }, (f !== void 0 ? f : null) !== null ? Object.defineProperty(e, "ref", {
         enumerable: !1,
-        get: B
+        get: p
       }) : Object.defineProperty(e, "ref", { enumerable: !1, value: null }), e._store = {}, Object.defineProperty(e._store, "validated", {
         configurable: !1,
         enumerable: !1,
@@ -183,112 +183,112 @@ function Be() {
         configurable: !1,
         enumerable: !1,
         writable: !0,
-        value: se
+        value: le
       }), Object.defineProperty(e, "_debugTask", {
         configurable: !1,
         enumerable: !1,
         writable: !0,
-        value: le
+        value: ce
       }), Object.freeze && (Object.freeze(e.props), Object.freeze(e)), e;
     }
-    function X(e, a, v, d, D, C, se, le) {
-      var m = a.children;
-      if (m !== void 0)
-        if (d)
-          if (x(m)) {
-            for (d = 0; d < m.length; d++)
-              G(m[d]);
-            Object.freeze && Object.freeze(m);
+    function V(e, u, f, g, M, j, le, ce) {
+      var y = u.children;
+      if (y !== void 0)
+        if (g)
+          if (K(y)) {
+            for (g = 0; g < y.length; g++)
+              B(y[g]);
+            Object.freeze && Object.freeze(y);
           } else
             console.error(
               "React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead."
             );
-        else G(m);
-      if (b.call(a, "key")) {
-        m = o(e);
-        var N = Object.keys(a).filter(function(xe) {
-          return xe !== "key";
+        else B(y);
+      if (ie.call(u, "key")) {
+        y = o(e);
+        var G = Object.keys(u).filter(function(Ce) {
+          return Ce !== "key";
         });
-        d = 0 < N.length ? "{key: someKey, " + N.join(": ..., ") + ": ...}" : "{key: someKey}", K[m + d] || (N = 0 < N.length ? "{" + N.join(": ..., ") + ": ...}" : "{}", console.error(
+        g = 0 < G.length ? "{key: someKey, " + G.join(": ..., ") + ": ...}" : "{key: someKey}", k[y + g] || (G = 0 < G.length ? "{" + G.join(": ..., ") + ": ...}" : "{}", console.error(
           `A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
 React keys must be passed directly to JSX without using spread:
   let props = %s;
   <%s key={someKey} {...props} />`,
-          d,
-          m,
-          N,
-          m
-        ), K[m + d] = !0);
+          g,
+          y,
+          G,
+          y
+        ), k[y + g] = !0);
       }
-      if (m = null, v !== void 0 && (r(v), m = "" + v), c(a) && (r(a.key), m = "" + a.key), "key" in a) {
-        v = {};
-        for (var ce in a)
-          ce !== "key" && (v[ce] = a[ce]);
-      } else v = a;
-      return m && R(
-        v,
+      if (y = null, f !== void 0 && (t(f), y = "" + f), l(u) && (t(u.key), y = "" + u.key), "key" in u) {
+        f = {};
+        for (var ve in u)
+          ve !== "key" && (f[ve] = u[ve]);
+      } else f = u;
+      return y && w(
+        f,
         typeof e == "function" ? e.displayName || e.name || "Unknown" : e
-      ), Y(
+      ), T(
         e,
-        m,
-        C,
-        D,
-        u(),
-        v,
-        se,
-        le
+        y,
+        j,
+        M,
+        a(),
+        f,
+        le,
+        ce
       );
     }
-    function G(e) {
-      typeof e == "object" && e !== null && e.$$typeof === H && e._store && (e._store.validated = 1);
+    function B(e) {
+      typeof e == "object" && e !== null && e.$$typeof === W && e._store && (e._store.validated = 1);
     }
-    var j = be, H = Symbol.for("react.transitional.element"), ae = Symbol.for("react.portal"), V = Symbol.for("react.fragment"), S = Symbol.for("react.strict_mode"), ie = Symbol.for("react.profiler"), A = Symbol.for("react.consumer"), M = Symbol.for("react.context"), E = Symbol.for("react.forward_ref"), J = Symbol.for("react.suspense"), Z = Symbol.for("react.suspense_list"), Q = Symbol.for("react.memo"), f = Symbol.for("react.lazy"), L = Symbol.for("react.activity"), ue = Symbol.for("react.client.reference"), U = j.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, b = Object.prototype.hasOwnProperty, x = Array.isArray, s = console.createTask ? console.createTask : function() {
+    var E = De, W = Symbol.for("react.transitional.element"), $ = Symbol.for("react.portal"), d = Symbol.for("react.fragment"), c = Symbol.for("react.strict_mode"), q = Symbol.for("react.profiler"), F = Symbol.for("react.consumer"), J = Symbol.for("react.context"), O = Symbol.for("react.forward_ref"), Z = Symbol.for("react.suspense"), A = Symbol.for("react.suspense_list"), re = Symbol.for("react.memo"), Q = Symbol.for("react.lazy"), ne = Symbol.for("react.activity"), m = Symbol.for("react.client.reference"), L = E.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ie = Object.prototype.hasOwnProperty, K = Array.isArray, _ = console.createTask ? console.createTask : function() {
       return null;
     };
-    j = {
+    E = {
       "react-stack-bottom-frame": function(e) {
         return e();
       }
     };
-    var p, y = {}, w = j["react-stack-bottom-frame"].bind(
-      j,
-      l
-    )(), _ = s(i(l)), K = {};
-    W.Fragment = V, W.jsx = function(e, a, v, d, D) {
-      var C = 1e4 > U.recentlyCreatedOwnerStacks++;
-      return X(
+    var S, v = {}, x = E["react-stack-bottom-frame"].bind(
+      E,
+      s
+    )(), C = _(r(s)), k = {};
+    te.Fragment = d, te.jsx = function(e, u, f, g, M) {
+      var j = 1e4 > L.recentlyCreatedOwnerStacks++;
+      return V(
         e,
-        a,
-        v,
+        u,
+        f,
         !1,
-        d,
-        D,
-        C ? Error("react-stack-top-frame") : w,
-        C ? s(i(e)) : _
+        g,
+        M,
+        j ? Error("react-stack-top-frame") : x,
+        j ? _(r(e)) : C
       );
-    }, W.jsxs = function(e, a, v, d, D) {
-      var C = 1e4 > U.recentlyCreatedOwnerStacks++;
-      return X(
+    }, te.jsxs = function(e, u, f, g, M) {
+      var j = 1e4 > L.recentlyCreatedOwnerStacks++;
+      return V(
         e,
-        a,
-        v,
+        u,
+        f,
         !0,
-        d,
-        D,
-        C ? Error("react-stack-top-frame") : w,
-        C ? s(i(e)) : _
+        g,
+        M,
+        j ? Error("react-stack-top-frame") : x,
+        j ? _(r(e)) : C
       );
     };
-  }()), W;
+  }()), te;
 }
-var ye;
-function Ue() {
-  return ye || (ye = 1, process.env.NODE_ENV === "production" ? ee.exports = Oe() : ee.exports = Be()), ee.exports;
+var he;
+function Oe() {
+  return he || (he = 1, process.env.NODE_ENV === "production" ? ae.exports = Ue() : ae.exports = Be()), ae.exports;
 }
-var z = Ue();
-const t = {
+var b = Oe();
+const i = {
   blend: 5,
   intensity: 2,
   force: 1.1,
@@ -306,10 +306,10 @@ const t = {
   dyeRes: 512,
   simRes: 128,
   refreshRate: 60
-}, re = (o) => {
+}, I = (o) => {
   const n = new _e(o);
-  return new de(n.r, n.g, n.b);
-}, ve = (o, n) => Math.pow(o, n * t.refreshRate);
+  return new me(n.r, n.g, n.b);
+}, fe = (o, n) => Math.pow(o, n * i.refreshRate);
 var je = `uniform sampler2D tFluid;
 
 uniform vec3 uColor;
@@ -351,95 +351,190 @@ void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor)
 
     outputColor = finalColor;
 }`;
-class Ve extends Se {
-  constructor(r = {}) {
-    const i = {
-      tFluid: new F(r.tFluid),
-      uDistort: new F(r.distortion),
-      uRainbow: new F(r.rainbow),
-      uIntensity: new F(r.intensity),
-      uBlend: new F(r.blend),
-      uShowBackground: new F(r.showBackground),
-      uColor: new F(re(r.fluidColor)),
-      uBackgroundColor: new F(re(r.backgroundColor))
+class Ve extends Re {
+  constructor(t = {}) {
+    const r = {
+      tFluid: new h(t.tFluid),
+      uDistort: new h(t.distortion),
+      uRainbow: new h(t.rainbow),
+      uIntensity: new h(t.intensity),
+      uBlend: new h(t.blend),
+      uShowBackground: new h(t.showBackground),
+      uColor: new h(I(t.fluidColor)),
+      uBackgroundColor: new h(I(t.backgroundColor))
     };
     super("FluidEffect", je, {
-      blendFunction: r.blendFunction,
-      uniforms: new Map(Object.entries(i))
+      blendFunction: t.blendFunction,
+      uniforms: new Map(Object.entries(r))
     });
-    me(this, "state");
+    oe(this, "state");
     this.state = {
-      ...r
+      ...t
     };
   }
-  updateUniform(r, i) {
-    const u = this.uniforms.get(r);
-    u && (u.value = i);
+  updateUniform(t, r) {
+    const a = this.uniforms.get(t);
+    a && (a.value = r);
   }
   update() {
-    this.updateUniform("uIntensity", this.state.intensity), this.updateUniform("uDistort", this.state.distortion), this.updateUniform("uRainbow", this.state.rainbow), this.updateUniform("uBlend", this.state.blend), this.updateUniform("uShowBackground", this.state.showBackground), this.updateUniform("uColor", re(this.state.fluidColor)), this.updateUniform("uBackgroundColor", re(this.state.backgroundColor));
+    this.updateUniform("uIntensity", this.state.intensity), this.updateUniform("uDistort", this.state.distortion), this.updateUniform("uRainbow", this.state.rainbow), this.updateUniform("uBlend", this.state.blend), this.updateUniform("uShowBackground", this.state.showBackground), this.updateUniform("uColor", I(this.state.fluidColor)), this.updateUniform("uBackgroundColor", I(this.state.backgroundColor));
   }
 }
-const Ae = we(function(n, r) {
-  const i = q(() => new Ve(n), []);
-  return ne(() => {
-    i.state = { ...n }, i.update();
-  }, [i, n]), ne(() => () => {
-    var u;
-    (u = i.dispose) == null || u.call(i);
-  }, [i]), /* @__PURE__ */ z.jsx("primitive", { ref: r, object: i, dispose: null });
-}), fe = (o, n, r) => {
-  const i = oe(o, n, r), u = oe(o, n, r), l = O({
-    read: i,
-    write: u,
+const Ae = ye(function(n, t) {
+  const r = Y(() => new Ve(n), []);
+  return H(() => {
+    r.state = { ...n }, r.update();
+  }, [r, n]), H(() => () => {
+    var a;
+    (a = r.dispose) == null || a.call(r);
+  }, [r]), /* @__PURE__ */ b.jsx("primitive", { ref: t, object: r, dispose: null });
+}), Le = () => {
+  const o = () => t(
+    Object.fromEntries(
+      Object.keys(n).map((r) => [r, i[r]])
+    )
+  ), [n, t] = we("Settings", () => ({
+    intensity: {
+      value: i.intensity,
+      min: 0,
+      max: 10,
+      step: 0.01,
+      label: "intensity"
+    },
+    force: {
+      value: i.force,
+      min: 0,
+      max: 20,
+      step: 0.1,
+      label: "force"
+    },
+    distortion: {
+      value: i.distortion,
+      min: 0,
+      max: 2,
+      step: 0.01,
+      label: "distortion"
+    },
+    curl: {
+      value: i.curl,
+      min: 0,
+      max: 50,
+      step: 0.1,
+      label: "curl"
+    },
+    swirl: {
+      value: i.swirl,
+      min: 0,
+      max: 20,
+      step: 1,
+      label: "swirl"
+    },
+    fluidColor: {
+      value: i.fluidColor,
+      label: "fluid color"
+    },
+    backgroundColor: {
+      value: i.backgroundColor,
+      label: "background color"
+    },
+    blend: {
+      value: i.blend,
+      min: 0,
+      max: 10,
+      step: 0.01,
+      label: "blend"
+    },
+    showBackground: {
+      value: i.showBackground,
+      label: "show background"
+    },
+    rainbow: {
+      value: i.rainbow,
+      label: "rainbow mode"
+    },
+    pressure: {
+      value: i.pressure,
+      min: 0,
+      max: 1,
+      step: 0.01,
+      label: "pressure reduction"
+    },
+    densityDissipation: {
+      value: i.densityDissipation,
+      min: 0,
+      max: 1,
+      step: 0.01,
+      label: "density dissipation"
+    },
+    velocityDissipation: {
+      value: i.velocityDissipation,
+      min: 0,
+      max: 1,
+      step: 0.01,
+      label: "velocity dissipation"
+    },
+    radius: {
+      value: i.radius,
+      min: 0.01,
+      max: 1,
+      step: 0.01,
+      label: "radius"
+    },
+    "reset settings": ke(o)
+  }));
+  return n;
+}, de = (o, n, t) => {
+  const r = se(o, n, t), a = se(o, n, t), s = U({
+    read: r,
+    write: a,
     swap: () => {
-      const c = l.read;
-      l.read = l.write, l.write = c;
+      const l = s.read;
+      s.read = s.write, s.write = l;
     },
     dispose: () => {
-      i.dispose(), u.dispose();
+      r.dispose(), a.dispose();
     }
   }).current;
-  return l;
-}, Le = () => {
-  const o = fe(t.dyeRes, t.dyeRes, {
-    type: g.HalfFloatType,
-    format: g.RGBAFormat,
-    minFilter: g.LinearFilter,
+  return s;
+}, Me = () => {
+  const o = de(i.dyeRes, i.dyeRes, {
+    type: R.HalfFloatType,
+    format: R.RGBAFormat,
+    minFilter: R.LinearFilter,
     depth: !1
-  }), n = fe(t.simRes, t.simRes, {
-    type: g.HalfFloatType,
-    format: g.RGFormat,
-    minFilter: g.LinearFilter,
+  }), n = de(i.simRes, i.simRes, {
+    type: R.HalfFloatType,
+    format: R.RGFormat,
+    minFilter: R.LinearFilter,
     depth: !1
-  }), r = fe(t.simRes, t.simRes, {
-    type: g.HalfFloatType,
-    format: g.RedFormat,
-    minFilter: g.NearestFilter,
+  }), t = de(i.simRes, i.simRes, {
+    type: R.HalfFloatType,
+    format: R.RedFormat,
+    minFilter: R.NearestFilter,
     depth: !1
-  }), i = oe(t.simRes, t.simRes, {
-    type: g.HalfFloatType,
-    format: g.RedFormat,
-    minFilter: g.NearestFilter,
+  }), r = se(i.simRes, i.simRes, {
+    type: R.HalfFloatType,
+    format: R.RedFormat,
+    minFilter: R.NearestFilter,
     depth: !1
-  }), u = oe(t.simRes, t.simRes, {
-    type: g.HalfFloatType,
-    format: g.RedFormat,
-    minFilter: g.NearestFilter,
+  }), a = se(i.simRes, i.simRes, {
+    type: R.HalfFloatType,
+    format: R.RedFormat,
+    minFilter: R.NearestFilter,
     depth: !1
-  }), l = q(() => ({
+  }), s = Y(() => ({
     density: o,
     velocity: n,
-    pressure: r,
-    divergence: i,
-    curl: u
-  }), [u, o, i, r, n]);
-  return ne(() => () => {
-    for (const c of Object.values(l))
-      c.dispose();
-  }, [l]), l;
+    pressure: t,
+    divergence: r,
+    curl: a
+  }), [a, o, r, t, n]);
+  return H(() => () => {
+    for (const l of Object.values(s))
+      l.dispose();
+  }, [s]), s;
 };
-var P = `varying vec2 vUv;
+var z = `varying vec2 vUv;
 varying vec2 vL;
 varying vec2 vR;
 varying vec2 vT;
@@ -486,7 +581,7 @@ void main() {
     float vorticity = R - L - T + B;
 
     gl_FragColor = vec4(vorticity, 0.0, 0.0, 1.0);
-}`, Ye = `precision highp float;
+}`, Ie = `precision highp float;
 
 varying highp vec2 vUv;
 varying highp vec2 vL;
@@ -526,7 +621,7 @@ void main() {
     float div = 0.5 * (R - L + T - B);
 
     gl_FragColor = vec4(div, 0.0, 0.0, 1.0);
-}`, Me = `precision highp float;
+}`, Ye = `precision highp float;
 
 varying highp vec2 vUv;
 varying highp vec2 vL;
@@ -551,7 +646,7 @@ void main() {
     velocity.xy -= vec2(R - L, T - B);
 
     gl_FragColor = vec4(velocity, 0.0, 1.0);
-}`, Ie = `precision highp float;
+}`, We = `precision highp float;
 
 varying highp vec2 vUv;
 varying highp vec2 vL;
@@ -578,7 +673,7 @@ void main() {
     float pressure = (L + R + B + T - divergence) * 0.25;
 
     gl_FragColor = vec4(pressure, 0.0, 0.0, 1.0);
-}`, We = `varying vec2 vUv;
+}`, $e = `varying vec2 vUv;
 
 uniform sampler2D uTarget;
 uniform float aspectRatio;
@@ -596,7 +691,7 @@ void main() {
     vec3 base = texture2D(uTarget, vUv).xyz;
 
     gl_FragColor = vec4(base + splat, 1.0);
-}`, $e = `precision highp float;
+}`, qe = `precision highp float;
 
 varying vec2 vUv;
 uniform sampler2D uVelocity;
@@ -611,7 +706,7 @@ void main() {
     gl_FragColor = uDissipation * texture2D(uSource, coord);
 
     gl_FragColor.a = 1.0;
-}`, qe = `precision highp float;
+}`, Ge = `precision highp float;
 
 varying vec2 vUv;
 varying vec2 vL;
@@ -648,362 +743,456 @@ void main() {
     gl_FragColor = vec4(vel + force * dt, 0.0, 1.0);
 }`;
 const Xe = () => {
-  const o = $((r) => r.size), n = q(() => {
-    const r = new k({
+  const o = X((t) => t.size), n = Y(() => {
+    const t = new N({
       uniforms: {
         uVelocity: {
-          value: new h()
+          value: new P()
         },
         uSource: {
-          value: new h()
+          value: new P()
         },
         dt: {
-          value: 1 / t.refreshRate
+          value: 1 / i.refreshRate
         },
         uDissipation: {
           value: 1
         },
-        texelSize: { value: new T() }
+        texelSize: { value: new D() }
       },
-      fragmentShader: $e,
-      vertexShader: P,
+      fragmentShader: qe,
+      vertexShader: z,
       depthTest: !1,
       depthWrite: !1
-    }), i = new k({
+    }), r = new N({
       uniforms: {
         uTexture: {
-          value: new h()
+          value: new P()
         },
         uClearValue: {
-          value: t.pressure
+          value: i.pressure
         },
         texelSize: {
-          value: new T()
+          value: new D()
         }
       },
       fragmentShader: Ne,
-      vertexShader: P,
+      vertexShader: z,
       depthTest: !1,
       depthWrite: !1
-    }), u = new k({
+    }), a = new N({
       uniforms: {
         uVelocity: {
-          value: new h()
+          value: new P()
         },
         texelSize: {
-          value: new T()
+          value: new D()
         }
       },
       fragmentShader: ze,
-      vertexShader: P,
+      vertexShader: z,
       depthTest: !1,
       depthWrite: !1
-    }), l = new k({
+    }), s = new N({
       uniforms: {
         uVelocity: {
-          value: new h()
+          value: new P()
         },
         texelSize: {
-          value: new T()
-        }
-      },
-      fragmentShader: Ye,
-      vertexShader: P,
-      depthTest: !1,
-      depthWrite: !1
-    }), c = new k({
-      uniforms: {
-        uPressure: {
-          value: new h()
-        },
-        uVelocity: {
-          value: new h()
-        },
-        texelSize: {
-          value: new T()
-        }
-      },
-      fragmentShader: Me,
-      vertexShader: P,
-      depthTest: !1,
-      depthWrite: !1
-    }), R = new k({
-      uniforms: {
-        uPressure: {
-          value: new h()
-        },
-        uDivergence: {
-          value: new h()
-        },
-        texelSize: {
-          value: new T()
+          value: new D()
         }
       },
       fragmentShader: Ie,
-      vertexShader: P,
+      vertexShader: z,
       depthTest: !1,
       depthWrite: !1
-    }), B = new k({
+    }), l = new N({
+      uniforms: {
+        uPressure: {
+          value: new P()
+        },
+        uVelocity: {
+          value: new P()
+        },
+        texelSize: {
+          value: new D()
+        }
+      },
+      fragmentShader: Ye,
+      vertexShader: z,
+      depthTest: !1,
+      depthWrite: !1
+    }), w = new N({
+      uniforms: {
+        uPressure: {
+          value: new P()
+        },
+        uDivergence: {
+          value: new P()
+        },
+        texelSize: {
+          value: new D()
+        }
+      },
+      fragmentShader: We,
+      vertexShader: z,
+      depthTest: !1,
+      depthWrite: !1
+    }), p = new N({
       uniforms: {
         uTarget: {
-          value: new h()
+          value: new P()
         },
         aspectRatio: {
           value: o.width / o.height
         },
         uColor: {
-          value: new de()
+          value: new me()
         },
         uPointer: {
-          value: new T()
+          value: new D()
         },
         uRadius: {
-          value: t.radius / 100
+          value: i.radius / 100
         },
         texelSize: {
-          value: new T()
+          value: new D()
         }
       },
-      fragmentShader: We,
-      vertexShader: P,
+      fragmentShader: $e,
+      vertexShader: z,
       depthTest: !1,
       depthWrite: !1
-    }), Y = new k({
+    }), T = new N({
       uniforms: {
         uVelocity: {
-          value: new h()
+          value: new P()
         },
         uCurl: {
-          value: new h()
+          value: new P()
         },
         uCurlValue: {
-          value: t.curl
+          value: i.curl
         },
         dt: {
-          value: 1 / t.refreshRate
+          value: 1 / i.refreshRate
         },
         texelSize: {
-          value: new T()
+          value: new D()
         }
       },
-      fragmentShader: qe,
-      vertexShader: P,
+      fragmentShader: Ge,
+      vertexShader: z,
       depthTest: !1,
       depthWrite: !1
     });
     return {
-      splat: B,
-      curl: u,
-      clear: i,
-      divergence: l,
-      pressure: R,
-      gradientSubstract: c,
-      advection: r,
-      vorticity: Y
+      splat: p,
+      curl: a,
+      clear: r,
+      divergence: s,
+      pressure: w,
+      gradientSubstract: l,
+      advection: t,
+      vorticity: T
     };
   }, [o]);
-  return ne(() => {
-    for (const r of Object.values(n)) {
-      const i = o.width / (o.height + 400);
-      r.uniforms.texelSize.value.set(1 / (t.simRes * i), 1 / t.simRes);
+  return H(() => {
+    for (const t of Object.values(n)) {
+      const r = o.width / (o.height + 400);
+      t.uniforms.texelSize.value.set(1 / (i.simRes * r), 1 / i.simRes);
     }
     return () => {
-      for (const r of Object.values(n))
-        r.dispose();
+      for (const t of Object.values(n))
+        t.dispose();
     };
   }, [n, o]), n;
-}, Ge = ({ force: o }) => {
-  const n = $((c) => c.size), r = O([]).current, i = O(new T()), u = O(!1);
-  return { onPointerMove: te(
-    (c) => {
-      const R = c.x - i.current.x, B = c.y - i.current.y;
-      if (!u.current) {
-        u.current = !0, i.current.set(c.x, c.y);
+}, He = ({ force: o }) => {
+  const n = X((l) => l.size), t = U([]).current, r = U(new D()), a = U(!1);
+  return { onPointerMove: ue(
+    (l) => {
+      const w = l.x - r.current.x, p = l.y - r.current.y;
+      if (!a.current) {
+        a.current = !0, r.current.set(l.x, l.y);
         return;
       }
-      i.current.set(c.x, c.y), r.push({
-        mouseX: c.x / n.width,
-        mouseY: 1 - c.y / n.height,
-        velocityX: R * o,
-        velocityY: -B * o
+      r.current.set(l.x, l.y), t.push({
+        mouseX: l.x / n.width,
+        mouseY: 1 - l.y / n.height,
+        velocityX: w * o,
+        velocityY: -p * o
       });
     },
-    [o, n.height, n.width, r]
-  ), splatStack: r };
-}, tr = ({
-  blend: o = t.blend,
-  force: n = t.force,
-  radius: r = t.radius,
-  curl: i = t.curl,
-  swirl: u = t.swirl,
-  intensity: l = t.intensity,
-  distortion: c = t.distortion,
-  fluidColor: R = t.fluidColor,
-  backgroundColor: B = t.backgroundColor,
-  showBackground: Y = t.showBackground,
-  rainbow: X = t.rainbow,
-  pressure: G = t.pressure,
-  densityDissipation: j = t.densityDissipation,
-  velocityDissipation: H = t.velocityDissipation,
-  blendFunction: ae = Ee.NORMAL
+    [o, n.height, n.width, t]
+  ), splatStack: t };
+}, at = ({
+  blend: o = i.blend,
+  force: n = i.force,
+  radius: t = i.radius,
+  curl: r = i.curl,
+  swirl: a = i.swirl,
+  intensity: s = i.intensity,
+  distortion: l = i.distortion,
+  fluidColor: w = i.fluidColor,
+  backgroundColor: p = i.backgroundColor,
+  showBackground: T = i.showBackground,
+  rainbow: V = i.rainbow,
+  pressure: B = i.pressure,
+  densityDissipation: E = i.densityDissipation,
+  velocityDissipation: W = i.velocityDissipation,
+  blendFunction: $ = be.NORMAL,
+  controls: d = !1
 }) => {
-  const V = $((p) => p.size), S = $((p) => p.gl), ie = $((p) => p.camera), A = q(() => new De(), []), M = q(() => new Fe(), []), E = O(null), J = O(null), Z = O(new T()), Q = O(new de()), f = Le(), L = Xe(), { onPointerMove: ue, splatStack: U } = Ge({ force: n }), b = te(
-    (p) => {
-      E.current && (E.current.material = L[p], E.current.material.needsUpdate = !0);
+  const c = d ? Le() : {}, q = X((x) => x.size), F = X((x) => x.gl), J = X((x) => x.camera), O = Y(() => new Pe(), []), Z = Y(() => new Fe(), []), A = U(null), re = U(null), Q = U(new D()), ne = U(new me()), m = Me(), L = Xe(), { onPointerMove: ie, splatStack: K } = He({ force: n }), _ = ue(
+    (x) => {
+      A.current && (A.current.material = L[x], A.current.material.needsUpdate = !0);
     },
     [L]
-  ), x = te(
-    (p) => {
-      const y = f[p];
-      "write" in y ? (S.setRenderTarget(y.write), S.clear(), S.render(A, M), y.swap()) : (S.setRenderTarget(y), S.clear(), S.render(A, M));
+  ), S = ue(
+    (x) => {
+      const C = m[x];
+      "write" in C ? (F.setRenderTarget(C.write), F.clear(), F.render(O, Z), C.swap()) : (F.setRenderTarget(C), F.clear(), F.render(O, Z));
     },
-    [M, A, f, S]
-  ), s = te(
-    (p, y, w) => {
-      const _ = L[p];
-      _ && _.uniforms[y] && (_.uniforms[y].value = w);
+    [Z, O, m, F]
+  ), v = ue(
+    (x, C, k) => {
+      const e = L[x];
+      e && e.uniforms[C] && (e.uniforms[C].value = k);
     },
     [L]
   );
-  return Te((p, y) => {
-    if (!(!E.current || !J.current)) {
-      E.current.quaternion.copy(ie.quaternion);
-      for (let w = U.length - 1; w >= 0; w--) {
-        const { mouseX: _, mouseY: K, velocityX: e, velocityY: a } = U[w];
-        Z.current.set(_, K), Q.current.set(e, a, 10), b("splat"), s("splat", "uTarget", f.velocity.read.texture), s("splat", "uPointer", Z.current), s("splat", "uColor", Q.current), s("splat", "uRadius", r / 100), x("velocity"), s("splat", "uTarget", f.density.read.texture), x("density"), U.pop();
+  return xe((x, C) => {
+    if (!(!A.current || !re.current)) {
+      A.current.quaternion.copy(J.quaternion);
+      for (let k = K.length - 1; k >= 0; k--) {
+        const { mouseX: e, mouseY: u, velocityX: f, velocityY: g } = K[k];
+        Q.current.set(e, u), ne.current.set(f, g, 10), _("splat"), v("splat", "uTarget", m.velocity.read.texture), v("splat", "uPointer", Q.current), v("splat", "uColor", ne.current), v("splat", "uRadius", t / 100), S("velocity"), v("splat", "uTarget", m.density.read.texture), S("density"), K.pop();
       }
-      b("curl"), s("curl", "uVelocity", f.velocity.read.texture), x("curl"), b("vorticity"), s("vorticity", "uVelocity", f.velocity.read.texture), s("vorticity", "uCurl", f.curl.texture), s("vorticity", "uCurlValue", i), x("velocity"), b("divergence"), s("divergence", "uVelocity", f.velocity.read.texture), x("divergence"), b("clear"), s("clear", "uTexture", f.pressure.read.texture), s("clear", "uClearValue", ve(G, y)), x("pressure"), b("pressure"), s("pressure", "uDivergence", f.divergence.texture);
-      for (let w = 0; w < u; w++)
-        s("pressure", "uPressure", f.pressure.read.texture), x("pressure");
-      b("gradientSubstract"), s("gradientSubstract", "uPressure", f.pressure.read.texture), s("gradientSubstract", "uVelocity", f.velocity.read.texture), x("velocity"), b("advection"), s("advection", "uVelocity", f.velocity.read.texture), s("advection", "uSource", f.velocity.read.texture), s("advection", "uDissipation", ve(H, y)), x("velocity"), s("advection", "uVelocity", f.velocity.read.texture), s("advection", "uSource", f.density.read.texture), s("advection", "uDissipation", ve(j, y)), x("density");
+      _("curl"), v("curl", "uVelocity", m.velocity.read.texture), S("curl"), _("vorticity"), v("vorticity", "uVelocity", m.velocity.read.texture), v("vorticity", "uCurl", m.curl.texture), v("vorticity", "uCurlValue", r), S("velocity"), _("divergence"), v("divergence", "uVelocity", m.velocity.read.texture), S("divergence"), _("clear"), v("clear", "uTexture", m.pressure.read.texture), v("clear", "uClearValue", fe(B, C)), S("pressure"), _("pressure"), v("pressure", "uDivergence", m.divergence.texture);
+      for (let k = 0; k < a; k++)
+        v("pressure", "uPressure", m.pressure.read.texture), S("pressure");
+      _("gradientSubstract"), v("gradientSubstract", "uPressure", m.pressure.read.texture), v("gradientSubstract", "uVelocity", m.velocity.read.texture), S("velocity"), _("advection"), v("advection", "uVelocity", m.velocity.read.texture), v("advection", "uSource", m.velocity.read.texture), v("advection", "uDissipation", fe(W, C)), S("velocity"), v("advection", "uVelocity", m.velocity.read.texture), v("advection", "uSource", m.density.read.texture), v("advection", "uDissipation", fe(E, C)), S("density");
     }
-  }), /* @__PURE__ */ z.jsxs(z.Fragment, { children: [
-    Ce(
-      /* @__PURE__ */ z.jsx(
+  }), /* @__PURE__ */ b.jsxs(b.Fragment, { children: [
+    d && /* @__PURE__ */ b.jsx(b.Fragment, {}),
+    Ee(
+      /* @__PURE__ */ b.jsx(
         "mesh",
         {
-          ref: E,
-          onPointerMove: ue,
-          scale: [V.width, V.height, 1],
-          children: /* @__PURE__ */ z.jsx("planeGeometry", { args: [2, 2, 10, 10] })
+          ref: A,
+          onPointerMove: ie,
+          scale: [q.width, q.height, 1],
+          children: /* @__PURE__ */ b.jsx("planeGeometry", { args: [2, 2, 10, 10] })
         }
       ),
-      A
+      O
     ),
-    /* @__PURE__ */ z.jsx(
+    /* @__PURE__ */ b.jsx(
       Ae,
       {
-        blendFunction: ae,
-        intensity: l,
-        rainbow: X,
-        distortion: c,
-        backgroundColor: B,
-        blend: o,
-        fluidColor: R,
-        showBackground: Y,
-        ref: J,
-        tFluid: f.density.read.texture
+        blendFunction: $,
+        intensity: d && c.intensity !== void 0 ? c.intensity : s,
+        rainbow: d && c.rainbow !== void 0 ? c.rainbow : V,
+        distortion: d && c.distortion !== void 0 ? c.distortion : l,
+        backgroundColor: d && c.backgroundColor !== void 0 ? c.backgroundColor : p,
+        blend: d && c.blend !== void 0 ? c.blend : o,
+        fluidColor: d && c.fluidColor !== void 0 ? c.fluidColor : w,
+        showBackground: d && c.showBackground !== void 0 ? c.showBackground : T,
+        ref: re,
+        tFluid: m.density.read.texture
       }
     )
   ] });
-}, nr = () => {
-  const o = () => r(
-    Object.fromEntries(
-      Object.keys(n).map((i) => [i, t[i]])
-    )
-  ), [n, r] = ke("Settings", () => ({
-    intensity: {
-      value: t.intensity,
-      min: 0,
-      max: 10,
-      step: 0.01,
-      label: "intensity"
-    },
-    force: {
-      value: t.force,
-      min: 0,
-      max: 20,
-      step: 0.1,
-      label: "force"
-    },
-    distortion: {
-      value: t.distortion,
-      min: 0,
-      max: 2,
-      step: 0.01,
-      label: "distortion"
-    },
-    curl: {
-      value: t.curl,
-      min: 0,
-      max: 50,
-      step: 0.1,
-      label: "curl"
-    },
-    swirl: {
-      value: t.swirl,
-      min: 0,
-      max: 20,
-      step: 1,
-      label: "swirl"
-    },
-    fluidColor: {
-      value: t.fluidColor,
-      label: "fluid color"
-    },
-    backgroundColor: {
-      value: t.backgroundColor,
-      label: "background color"
-    },
-    blend: {
-      value: t.blend,
-      min: 0,
-      max: 10,
-      step: 0.01,
-      label: "blend"
-    },
-    showBackground: {
-      value: t.showBackground,
-      label: "show background"
-    },
-    rainbow: {
-      value: t.rainbow,
-      label: "rainbow mode"
-    },
-    pressure: {
-      value: t.pressure,
-      min: 0,
-      max: 1,
-      step: 0.01,
-      label: "pressure reduction"
-    },
-    densityDissipation: {
-      value: t.densityDissipation,
-      min: 0,
-      max: 1,
-      step: 0.01,
-      label: "density dissipation"
-    },
-    velocityDissipation: {
-      value: t.velocityDissipation,
-      min: 0,
-      max: 1,
-      step: 0.01,
-      label: "velocity dissipation"
-    },
+};
+var Je = `uniform sampler2D tTarget;
+uniform vec2 uMouse;
+uniform float uRadius;
+uniform float uStrength;
+uniform vec3 uTintColor;
+uniform float uTintIntensity;
+uniform float uAspectRatio;
+uniform float uInvert;
+uniform float uRadial;
+
+float circle(vec2 uv, vec2 circlePosition, float radius, float aspectRatio) {
+    vec2 scaledUV = vec2(uv.x * aspectRatio, uv.y);
+    vec2 scaledCirclePos = vec2(circlePosition.x * aspectRatio, circlePosition.y);
+    float dist = distance(scaledUV, scaledCirclePos);
+    return 1.0 - smoothstep(0.0, radius, dist);
+}
+
+void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor) {
+    vec2 mousePos = uMouse * 0.5 + 0.5;
+    float bulge = circle(uv, mousePos, uRadius, uAspectRatio);
+
+    
+    vec2 dir = uv - mousePos;
+    vec2 normDir = normalize(dir);
+    float signDir = mix(1.0, -1.0, uInvert);
+    vec2 dirUv = uv - normDir * bulge * uStrength * 0.15 * signDir;
+
+    
+    float dist = length(dir);
+    vec2 normDir2 = dir / (dist + 1e-6);
+    float delta = uStrength - 1.0;
+    float adjDelta = mix(delta, -delta, uInvert);
+    float scale = 1.0 + bulge * adjDelta;
+    vec2 radialUv = mousePos + normDir2 * dist * scale;
+
+    
+    vec2 finalUv = mix(dirUv, radialUv, uRadial);
+
+    vec4 sampleColor = texture2D(inputBuffer, finalUv);
+    vec4 tintedColor = mix(sampleColor, vec4(uTintColor, 1.0), bulge * uTintIntensity);
+    outputColor = tintedColor;
+}`;
+class Ze extends Re {
+  constructor(t = {}) {
+    const r = new D(0.5, 0.5), a = {
+      tTarget: new h(t.tTarget || null),
+      uMouse: new h(r),
+      uRadius: new h(t.radius || 0.5),
+      uStrength: new h(t.strength || 0.7),
+      uTintColor: new h(I(t.tint || "#fff")),
+      uTintIntensity: new h(t.intensity || 0),
+      uAspectRatio: new h(t.aspectRatio || 1),
+      uInvert: new h(t.invert !== void 0 ? t.invert ? 1 : 0 : 1),
+      uRadial: new h(t.radial !== void 0 ? t.radial ? 1 : 0 : 1)
+    };
+    super("BulgeEffect", Je, {
+      blendFunction: t.blendFunction,
+      uniforms: new Map(Object.entries(a))
+    });
+    oe(this, "state");
+    oe(this, "mousePosition");
+    this.mousePosition = r, this.state = { ...t };
+  }
+  updateUniform(t, r) {
+    const a = this.uniforms.get(t);
+    a && (a.value = r);
+  }
+  setMousePosition(t) {
+    this.mousePosition.copy(t), this.updateUniform("uMouse", this.mousePosition);
+  }
+  update() {
+    this.updateUniform("uRadius", this.state.radius || 0.5), this.updateUniform("uStrength", this.state.strength || 0.7), this.state.tint ? this.updateUniform("uTintColor", I(this.state.tint)) : this.updateUniform("uTintColor", I("#fff")), this.state.intensity !== void 0 ? this.updateUniform("uTintIntensity", this.state.intensity) : this.updateUniform("uTintIntensity", 0), this.state.aspectRatio !== void 0 && this.updateUniform("uAspectRatio", this.state.aspectRatio), this.updateUniform(
+      "uInvert",
+      this.state.invert !== void 0 ? this.state.invert ? 1 : 0 : 1
+    ), this.updateUniform(
+      "uRadial",
+      this.state.radial !== void 0 ? this.state.radial ? 1 : 0 : 1
+    );
+  }
+}
+const Qe = ye(function(n, t) {
+  const r = Y(() => new Ze(n), []);
+  return H(() => {
+    r.state = { ...n }, r.update();
+  }, [r, n]), H(() => () => {
+    var a;
+    (a = r.dispose) == null || a.call(r);
+  }, [r]), /* @__PURE__ */ b.jsx("primitive", { ref: t, object: r, dispose: null });
+}), ut = ({
+  radius: o = 0.5,
+  strength: n = 1.5,
+  lerp: t = 0.075,
+  tint: r = "#fff",
+  intensity: a = 0,
+  blendFunction: s = be.NORMAL,
+  invert: l = !0,
+  radial: w = !0,
+  controls: p = !1
+}) => {
+  const T = U(null), V = U(null), B = U(new D(0, 0)), { viewport: E, camera: W } = X(), $ = Y(() => E.width / E.height, [E]), d = {
+    radius: 0.5,
+    strength: 1.5,
+    lerp: 0.075,
+    tint: "#fff",
+    intensity: 0,
+    invert: !0,
+    radial: !0
+  }, c = p ? we("Bulge Effect", {
     radius: {
-      value: t.radius,
+      value: d.radius,
+      min: 0.1,
+      max: 1,
+      step: 0.01,
+      label: "Radius"
+    },
+    strength: {
+      value: d.strength,
+      min: 0.1,
+      max: 3,
+      step: 0.1,
+      label: "Strength"
+    },
+    lerp: {
+      value: d.lerp,
       min: 0.01,
       max: 1,
       step: 0.01,
-      label: "radius"
+      label: "Smoothness"
     },
-    "reset settings": Pe(o)
-  }));
-  return n;
+    tint: {
+      value: d.tint,
+      label: "Tint"
+    },
+    intensity: {
+      value: d.intensity,
+      min: 0,
+      max: 1,
+      step: 0.01,
+      label: "Intensity"
+    },
+    invert: {
+      value: d.invert,
+      label: "Invert"
+    },
+    radial: {
+      value: d.radial,
+      label: "Radial Mode"
+    }
+  }) : {};
+  return xe((q) => {
+    if (T.current) {
+      const { x: F, y: J } = q.mouse;
+      let O = t;
+      p && typeof c.lerp == "number" && (O = c.lerp), B.current.x += (F - B.current.x) * O, B.current.y += (J - B.current.y) * O, T.current.setMousePosition(B.current), T.current.state.aspectRatio = $, T.current.state.invert = p ? c.invert : l, T.current.state.radial = p ? c.radial : w, T.current.update();
+    }
+    V.current && V.current.quaternion.copy(W.quaternion);
+  }), /* @__PURE__ */ b.jsxs(b.Fragment, { children: [
+    /* @__PURE__ */ b.jsxs(
+      "mesh",
+      {
+        ref: V,
+        renderOrder: 1e3,
+        position: [0, 0, 0],
+        scale: [E.width, E.height, 1],
+        children: [
+          /* @__PURE__ */ b.jsx("planeGeometry", { args: [1, 1] }),
+          /* @__PURE__ */ b.jsx("meshBasicMaterial", { transparent: !0, opacity: 0, depthTest: !1 })
+        ]
+      }
+    ),
+    /* @__PURE__ */ b.jsx(
+      Qe,
+      {
+        ref: T,
+        radius: p ? c.radius : o,
+        strength: p ? c.strength : n,
+        tint: p ? c.tint : r,
+        intensity: p ? c.intensity : a,
+        blendFunction: s,
+        aspectRatio: $,
+        invert: p ? c.invert : l,
+        radial: p ? c.radial : w
+      }
+    )
+  ] });
 };
 export {
-  tr as Fluid,
-  nr as useConfig
+  ut as Bulge,
+  at as Fluid,
+  Le as useConfig
 };
 //# sourceMappingURL=index.es.js.map

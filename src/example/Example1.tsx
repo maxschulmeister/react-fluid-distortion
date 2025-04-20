@@ -23,7 +23,7 @@ const Example1 = () => {
             <Text />
             <Image />
             <EffectComposer>
-                <Fluid />
+                <Fluid controls={false} />
             </EffectComposer>
         </ThreeTunnel.In>
     );

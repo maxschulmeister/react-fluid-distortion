@@ -62,7 +62,7 @@ const Example2 = () => {
             <Torus />
 
             <EffectComposer>
-                <Fluid {...config} rainbow={true} />
+                <Fluid {...config} rainbow={true} controls={true} />
             </EffectComposer>
         </ThreeTunnel.In>
     );
