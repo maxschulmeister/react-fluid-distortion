@@ -1,10 +1,10 @@
+import react from '@vitejs/plugin-react';
+import { fileURLToPath } from 'node:url';
 import * as path from 'path';
 import { defineConfig } from 'vite';
-import { fileURLToPath } from 'node:url';
-import tsConfigPaths from 'vite-tsconfig-paths';
-import react from '@vitejs/plugin-react';
-import glsl from 'vite-plugin-glsl';
 import dts from 'vite-plugin-dts';
+import glsl from 'vite-plugin-glsl';
+import tsConfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
     plugins: [react(), glsl(), dts({ include: 'lib', insertTypesEntry: true }), tsConfigPaths()],
@@ -31,7 +31,6 @@ export default defineConfig({
                 '@react-three/fiber',
                 '@react-three/drei',
                 'three',
-                'leva',
                 'postprocessing',
             ],
             output: {
@@ -40,7 +39,6 @@ export default defineConfig({
                     '@react-three/fiber': 'reactThreeFiber',
                     '@react-three/drei': 'drei',
                     three: 'THREE',
-                    leva: 'leva',
                     postprocessing: 'postprocessing',
                 },
             },

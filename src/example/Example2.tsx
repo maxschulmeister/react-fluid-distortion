@@ -3,7 +3,8 @@ import { useFrame, useThree } from '@react-three/fiber';
 import { EffectComposer } from '@react-three/postprocessing';
 import { useRef } from 'react';
 import { Mesh } from 'three';
-import { Fluid, useConfig } from '../../lib';
+import { Fluid } from '../../lib';
+import { useConfig } from '../../lib/hooks/useConfig';
 import Text from './Text';
 import { ThreeTunnel } from './tunel';
 
